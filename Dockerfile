@@ -8,8 +8,8 @@ RUN pip install -r requirements.txt
 # Run tests to validate app
 FROM node:12-alpine AS app-base
 RUN apk add --no-cache python g++ make
-WORKDIR /app
 COPY app/package.json app/yarn.lock ./
+WORKDIR /app
 RUN yarn install
 COPY app/spec ./spec
 COPY app/src ./src
